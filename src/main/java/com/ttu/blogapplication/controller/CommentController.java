@@ -3,6 +3,7 @@ import com.ttu.blogapplication.payload.CommentDTO;
 import com.ttu.blogapplication.service.CommentService;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -15,11 +16,8 @@ import java.util.List;
 @RequestMapping("api/posts/{postId}/comments")
 public class CommentController {
 
+    @Autowired
     private CommentService commentService;
-
-    public CommentController(CommentService commentService) {
-        this.commentService = commentService;
-    }
 
     @GetMapping
     public List<CommentDTO> getAllComments(@PathVariable int postId)
