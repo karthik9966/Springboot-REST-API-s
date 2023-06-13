@@ -16,12 +16,6 @@ import org.modelmapper.ModelMapper;
 @ExtendWith(MockitoExtension.class)
 public class CategoryServiceTests {
 
-//    public CategoryDto createCategory(CategoryDto categoryDto) {
-//        Category category = modelMapper.map(categoryDto, Category.class);
-//        Category savedCategory = categoryRepository.save(category);
-//        return modelMapper.map(savedCategory, CategoryDto.class);
-//    }
-
     @Mock
     private CategoryRepository categoryRepository;
 

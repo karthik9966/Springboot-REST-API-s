@@ -20,12 +20,6 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
-//@PostMapping
-//public ResponseEntity<CategoryDto> createCategory(@RequestBody CategoryDto categoryDto)
-//        {
-//        return new ResponseEntity<>(categoryService.createCategory(categoryDto), HttpStatus.CREATED);
-//        }
-
 @WebMvcTest(controllers = CategoryController.class)
 @AutoConfigureMockMvc(addFilters = false)
 public class CategoryControllerTests {
