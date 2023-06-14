@@ -2,6 +2,7 @@ package com.ttu.blogapplication;
 
 import com.ttu.blogapplication.model.Category;
 import com.ttu.blogapplication.repository.CategoryRepository;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -28,6 +29,11 @@ public class ApplicationIT {
 	@Autowired
 	private MockMvc mockMvc;
 
+	@BeforeEach
+	void setup(){
+		categoryRepository.deleteAll();
+	}
+
 	@Test
 	public void givenListOfCategories_whenGetAllCategories_thenReturnCategories() throws Exception{
 		// given - precondition or setup
@@ -45,6 +51,7 @@ public class ApplicationIT {
 		categoryRepository.saveAll(listOfCategories);
 		// when -  action or the behaviour that we are going test
 		ResultActions response = mockMvc.perform(get("/api/categories"));
+		System.out.println(response);
 
 		// then - verify the output
 		response.andExpect(status().isOk())
